@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoFire - Login</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to AutoFire</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cars.html">Showroom</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html" class="active">Login</a>
+    </nav>
+    <section>
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+
+        
+    </section>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get username and password from the form
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            console.log('Attempting login with username:', username, 'and password:', password);
+
+
+            // Valid credentials for demonstration
+            var SecretUsers = {
+                'mrm': 'thesmartest',
+                'mrz': 'thegreatest'
+            };
+
+            var ValidUsers = {
+                'jack': 'ripper',
+                'elon': 'mars'
+
+            }
+
+            // Check if the entered credentials are valid
+            if (username in SecretUsers && password === SecretUsers[username]) {
+                // Redirect to the secret page if login is successful
+                window.location.href = 'secret.html';
+
+            }
+            else if (username in ValidUsers && password === ValidUsers[username]){
+                alert('You have successfully logged in! ')
+                window.location.href = 'index.html';
+            }
+
+            else {
+                // Display error message (for demonstration)
+                alert('Invalid username or password. Please try again.');
+            }
+        });
+    </script>
+    
+    <footer>
+        <p>&copy; 2024 AutoFire. All rights reserved.</p>
+    </footer>
+</body>
+</html>
